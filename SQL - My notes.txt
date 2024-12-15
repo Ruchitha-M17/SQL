@@ -239,7 +239,40 @@ Eg: 1. SELECT * FROM student WHERE marks > 80;
 ---------------------------------------------------------------------------------------------------------------
 
 OPEARTORS - Used alongside WHERE CLAUSE, means they are also a part of some SEELCT statements.
-a. 
+a. Comparison operators: 
+	= : Equal
+	> : Greater than
+	< : Less than
+	>= : Greater than or equal
+	<= : Less than or equal
+	<> : Not equal.
+
+Eg: SELECT * FROM student WHERE marks = 93;
+
+b. Arithmetic Operators: 
+	+: Addition
+	- : Subtraction
+	* : Multiplication
+	/ : Division
+	% : Modulus
+
+Eg: SELECT * FROM student WHERE marks+10 > 100;
+
+c. Logical Operators:
+	a. AND - To check when both the conditions are true.
+	Eg: SELECT * FROM student WHERE marks > 80 AND city = 'Mumbai';
+
+	b. OR - To check when either of the conditions are true.
+	Eg: SELECT * FROM student WHERE marks > 80 OR city = 'Mumbai';
+
+	c. BETWEEN - Selects for a given range.
+	Eg: SELECT * FROM student WHERE marks BETWEEN 80 AND 90;
+
+	d. IN
+	e. BETWEEN
+	f. ALL
+	g. LIKE
+	h. ANY
 
 
 
