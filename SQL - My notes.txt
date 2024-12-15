@@ -1,0 +1,163 @@
+https://dev.mysql.com/downloads/installer/
+-------------------------------------------------------------------------------------------
+https://github.com/sandipmohapatra/batch245
+
+https://github.com/sandipmohapatra/MLA245-Java-Chan
+-------------------------------------------------------------------------------------------
+
+Databases: Digital information that can be stored and accessed.
+
+Database Management System: Application software to manage databases.
+
+Two types : 
+
+1. Relations DBMS Form of Tables. Eg: MySQL, PostgreSQL, Oracle
+
+2. Non-relational DBMS No Tables. Eg: MongoDB
+
+--------------------------------------------------------------------------------------------
+
+Structured Query Language(SQL) -  Programming language to interact with databases. 
+MySQL is an RDBMS that uses SQL.
+
+Performs CRUD Operations:
+C- CREATE
+R-READ
+U- UPDATE
+D-DELETE
+
+SQL is not case-sensitive.
+Semi-colon(;) acts as terminator.
+
+----------------------------------------------------------------------------------------------
+
+COMMANDS:
+
+To clear the screen: 
+SYSTEM CLS;
+
+----------------------------------------------------------------------------------------------
+
+DATABASE RELATED QUERIES:
+
+----------------------------------------------------------------------------------------------
+1. To see the existing databases: 
+SHOW DATABASES;
+----------------------------------------------------------------------------------------------
+2. To create database: 
+CREATE DATABASE <db name>; 
+Eg: CREATE DATABASE mphasis245;
+----------------------------------------------------------------------------------------------
+3. To go into the database:
+USE <db_name>;
+Eg: USE mphasis245;
+----------------------------------------------------------------------------------------------
+4. To drop a database:
+DROP DATABASE <db_name>;
+Eg: DROP DATABASE phasis245;
+----------------------------------------------------------------------------------------------
+5. To show tables as to check what all tables exist within a particular database:
+SHOW TABLES;
+----------------------------------------------------------------------------------------------
+
+DATATYPES:
+1. VARCHAR(0-255) Stores a string of characters for the given length.
+2. INT- Stores numerical values.
+3. FLOAT - Stores decimal values.
+4. BOOLEAN - Stores 0 or 1.
+5. DATE - Stores date in YYYY-MM-DD format.
+6. YEAR - Stores year
+
+----------------------------------------------------------------------------------------------
+
+TABLE RELATED QUERIES:
+
+-----------------------------------------------------------------------------------------------------------------------------
+1. To create table: 
+CREATE TABLE <table_name> ( 
+<column1> DT CONSTRAINT, 
+<column2> DT CONSTRAINT...) 
+);
+Eg: CREATE TABLE student ( 
+    rollno INT PRIMARY KEY, 
+    name VARCHAR(30) NOT NULL, 
+    address VARCHAR(30) NOT NULL 
+    );
+-----------------------------------------------------------------------------------------------------------------------------
+2. To insert data into the table:
+INSERT INTO <table_name> (<column1, column2....>) VALUES (
+<value of columni, value of column2>....), 
+(<value of column1, value of column2>....).....
+;
+
+Note: In which order the columns are entered, in the same order the values need to be filled.
+
+Eg: INSERT INTO student(rollno, name, address) VALUES (103, 'jack', 'Chennai'), (104, 'jagg', 'Mysore');
+	--> Such kind of insertion is used in cases where:
+	a. One of the columns is auto_incremented and other columns need manual typing.
+	b. Only certain columns need to be inserted and others need not to be (because of use of sum, avg etc.).
+	c. One of the columns has DEFAULT CONSTRAINT.
+
+						OR
+
+INSERT INTO student VALUES (103, 'jack', 'Chennai'), (104, 'jagg', 'Mysore');
+	--> Such kind of insertions are mostly used where all the values need to be inserted at the same time.
+
+-----------------------------------------------------------------------------------------------------------------------------------
+3. To select, fetch or view data in the table:
+SELECT (<column1>, <column2>.....) FROM <table_name>; --> Displays specific columns
+Eg: SELECT rollno, name FROM student;
+
+SELECT FROM <table name> --> Displays all columns
+Eg: SELECT FROM student;
+
+------------------------------------------------------------------------------------------------------------------------------------
+Eg: To the above student table, add:
+a. Physics, Chemistry and Biology as new columns.
+b. Calculate the total and average of the scores of the students by creating 2 extra columns as total and average.
+
+4. To add new columns, use ALTER command: 
+ALTER TABLE <table_name> ADD <column dt>; 
+
+Eg:
+ALTER TABLE student ADD phy INT;
+ALTER TABLE student ADD bio INT;
+ALTER TABLE student ADD chem INT;
+ALTER TABLE student ADD chem INT;
+ALTER TABLE student ADD tot INT;
+ALTER TABLE student ADD avg INT;
+
+5. To update the table, by adding values into the newly added columns:
+ALTER <table_name> SET <column1=value1>, <column2-value2>...;
+
+Eg:
+UPDATE student SET phy-88, chem-83, bio-74 WHERE rollno-101;
+UPDATE student SET phy-78, chem-73, bio-84 WHERE rollno-104;
+UPDATE student SET phy=68, chem-63, bio-64 WHERE rollno=103;
+UPDATE student SET phy=78, chem-73, bio-84 WHERE rollno=102;
+UPDATE student SET tot-phy+chem+bio;
+UPDATE student SET avg-tot/3;
+--------------------------------------------------------------------------------------------------------------------------------------
+
+6. To delete a row:
+DELETE FROM <table_name> WHERE <condition>;
+Eg: DELETE FROM student WHERE rollno=101;
+---------------------------------------------------------------------------------------------------------------------------------------
+
+7. To drop a table: --> Deletes the entire table.
+DROP TABLE <table_name>;
+Eg: DROP TABLE student;
+----------------------------------------------------------------------------------------------------------------------------------------
+
+8. To delete all the rows or data but the structure of the table will be there:
+TRUNCATE TABLE <table_name>;
+TRUNCATE TABLE student;
+----------------------------------------------------------------------------------------------------------------------------------------
+
+KEYS:
+a. PRIMARY KEYS: A column can be declared as primary key when it is unique and not null. 
+			      Duplicate values nor leaving the field empty causes error. 
+			      There can be only 1 PK.
+
+
+
