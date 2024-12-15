@@ -155,6 +155,8 @@ TRUNCATE TABLE student;
 ----------------------------------------------------------------------------------------------------------------------------------------
 
 KEYS:
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
 a. PRIMARY KEYS: A column can be declared as primary key when it is unique and not null. 
 			      Duplicate values nor leaving the field empty causes error. 
 			      There can be only 1 PK.
@@ -175,7 +177,7 @@ Eg: Roll no for students can be a PK, because every student has to have unique I
     	address VARCHAR(30) NOT NULL,
 	PRIMARY KEY(rollno) 				--------------> Declaring a primary key
     	);
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 b. FOREIGN KEYS: A column that refers to the primary key of another table. It can be null and be repeated.
 			      There can be multiple FKs.
@@ -194,5 +196,33 @@ Eg: Account number(PK) from Bank table will be referred as account number(FK) in
 	acc_no INT,
 	FOREIGN KEY(acc_no) REFERENCES bank(acc_no) 			------------> Declaring a foreign key
     	);
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CONSTRAINTS:
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+a. NOT NULL: Ensures that a column cannot have NULL/EMPTY values.
+
+b. UNIQUE: Ensures all values in a column are unique.
+
+c. PRIMARY KEY - A combination of both NOT NULL and UNIQUE constraint which cannot be duplicated.
+
+d. FOREIGN KEY: Links two tables and enforces referential integrity.
+
+e. DEFAULT: Sets a default value for a column if no value is provided.
+Eg:  1. CREATE TABLE employee(                                                   2.  CREATE TABLE persons(        
+          emp_id INT PRIMARY KEY, 						       id INT PRIMARY KEY,   
+          emp_name VARCHAR(30),						       name VARCHAR(30),
+          salary INT DEFAULT 25000 						       city VARCHAR(30) DEFAULT 'Bangalore'
+          );											       );
+In the above examples, in the salary and city column if nothing is entered, 25000 and 'Bangalore' will be entered.
+Also, if any value is provided then that specific value will be entered.
+
+f. 
+
+
+
+
+
 
 
