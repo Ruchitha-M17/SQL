@@ -158,6 +158,41 @@ KEYS:
 a. PRIMARY KEYS: A column can be declared as primary key when it is unique and not null. 
 			      Duplicate values nor leaving the field empty causes error. 
 			      There can be only 1 PK.
+			      Acts as a unique identifier. 
+Eg: Roll no for students can be a PK, because every student has to have unique IDs.
+      But student names nor courses cannot be PK, because 2 or more students can share a same name and a course can be studied by many students.
+	CREATE TABLE student ( 
+    	rollno INT PRIMARY KEY, 			------------> Declaring a primary key
+    	name VARCHAR(30) NOT NULL, 
+    	address VARCHAR(30) NOT NULL 
+    	);
 
+											OR
+
+	CREATE TABLE student ( 
+    	rollno INT,
+    	name VARCHAR(30) NOT NULL, 
+    	address VARCHAR(30) NOT NULL,
+	PRIMARY KEY(rollno) 				--------------> Declaring a primary key
+    	);
+
+
+b. FOREIGN KEYS: A column that refers to the primary key of another table. It can be null and be repeated.
+			      There can be multiple FKs.
+Eg: Account number(PK) from Bank table will be referred as account number(FK) in Transactions table. 
+      Here one customer can have multiple transactions with the same account number.
+	CREATE TABLE bank ( 
+    	acc_no INT PRIMARY KEY, 	------------> Declaring a primary key
+    	name VARCHAR(30) NOT NULL, 
+    	address VARCHAR(30) NOT NULL 
+    	);
+
+	CREATE TABLE transaction ( 
+    	transac_id INT PRIMARY KEY, 	------------> Declaring a primary key
+    	withdraw INT, 
+    	deposit INT,
+	acc_no INT,
+	FOREIGN KEY(acc_no) REFERENCES bank(acc_no) 			------------> Declaring a foreign key
+    	);
 
 
