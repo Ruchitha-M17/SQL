@@ -226,7 +226,12 @@ Eg: SELECT rollno, name FROM student;
 
 SELECT * FROM <table name> 		--> Displays all columns
 Eg: SELECT * FROM student;
---------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+
+DISTINCT KEYWORD - It is used to retrieve unique values from a specified column or set of columns in a database table. 
+				     It eliminates duplicate records, ensuring that only distinct, non-repeated values are returned.
+Eg: SELECT DISTINCT city FROM student;
+-------------------------------------------------------------------------------------------------------------------------------------------
 
 WHERE CLAUSE - Used along with SELECT, in situations where certain condition needs to be applied.
 SELECT (<column1>, <column2>.....) 
@@ -248,6 +253,7 @@ a. Comparison operators:
 	<> : Not equal.
 
 Eg: SELECT * FROM student WHERE marks = 93;
+-----------------------------------------------------------------------------------
 
 b. Arithmetic Operators: 
 	+: Addition
@@ -257,6 +263,7 @@ b. Arithmetic Operators:
 	% : Modulus
 
 Eg: SELECT * FROM student WHERE marks+10 > 100;
+------------------------------------------------------------------------------------
 
 c. Logical Operators:
 	a. AND - To check when both the conditions are true.
@@ -265,21 +272,42 @@ c. Logical Operators:
 	b. OR - To check when either of the conditions are true.
 	Eg: SELECT * FROM student WHERE marks > 80 OR city = 'Mumbai';
 
-	c. BETWEEN - Selects for a given range.
+	c. BETWEEN - Selects for a given range where starting and ending values are inclusive. 
 	Eg: SELECT * FROM student WHERE marks BETWEEN 80 AND 90;
 
-	d. IN
-	e. BETWEEN
+	d. IN - Matches any values that is present in the list.
+	Eg: SELECT * FROM student WHERE city IN ('Delhi', 'Mumbai');
+	
+	e. NOT - Negates a given condition.
+	Eg: SELECT * FROM student WHERE marks NOT BETWEEN 80 AND 90;
+	      SELECT * FROM student WHERE city NOT IN ('Delhi', 'Mumbai');
+
+
 	f. ALL
 	g. LIKE
 	h. ANY
 
+-------------------------------------------------------------------------------------------------------------------
 
+ORDER BY CLAUSE: Sort the data in ascending(ASC) or descending(DESC) order.
+SELECT <col1, col2> FROM <table_name>
+ORDER BY <col_name(s)> DESC;     --> By default the order condition is ascending order if no condition is specified.
 
+Eg: SELECT * FROM student 
+      ORDER BY city DESC; 
 
+-------------------------------------------------------------------------------------------------------------------------------------
 
+AGGREGATE FUNCTIONS: Ready to use arithmetic operation performing functions.
+a. COUNT() - Counts the number of entered values.
+Eg: SELECT COUNT(*) FROM student WHERE city = 'Delhi';
 
+b. MAX() - Calculates the maximum of given values.
+Eg:  SELECT MAX(marks) FROM student;
 
+c. MIN() - Calculates the minimum of given values.
+d. AVG()- Calculates the average of the given values.
+e. SUM() - Calculates the sum of the given values.
 
 
 
